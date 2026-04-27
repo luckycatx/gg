@@ -139,6 +139,11 @@ func IsNotNil[T any](p *T) bool {
 	return p != nil
 }
 
+// IsNilOrZero returns whether the given pointer p is nil or the value it points to is zero.
+func IsNilOrZero[T comparable](p *T) bool {
+	return p == nil || gvalue.IsZero(*p)
+}
+
 // Clone returns a shallow copy of the slice.
 // If the given pointer is nil, nil is returned.
 //
