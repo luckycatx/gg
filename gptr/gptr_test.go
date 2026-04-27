@@ -81,6 +81,14 @@ func TestIsNil(t *testing.T) {
 	assert.True(t, IsNil[int](nil))
 }
 
+func TestIsNilOrZero(t *testing.T) {
+	assert.False(t, IsNilOrZero(Of(1)))
+	assert.False(t, IsNilOrZero(Of("Alice")))
+	assert.True(t, IsNilOrZero(Of(0)))
+	assert.True(t, IsNilOrZero(Of("")))
+	assert.True(t, IsNilOrZero[int](nil))
+}
+
 func TestEqual(t *testing.T) {
 	ptr := Of(1)
 	assert.True(t, Equal(ptr, ptr))
